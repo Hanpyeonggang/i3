@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision To Leave</title>
+  <style>
+    @font-face {
+      font-family: 'SchoolSafetyGoodSupport';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimBareondotumR.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'SchoolSafetyGoodSupport';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimBareondotumB.woff2') format('woff2');
+      font-weight: 700;
+      font-display: swap; }
+
+    body {
+      margin: 0;
+      font-family: 'SchoolSafetyGoodSupport', sans-serif;
+      background-color: #2d6b5a; 
+      color: white;
+      background-size: cover;
+      background-position: center;
+      transition: background 0.6s ease;  }
+
+    .wrap {display: grid;grid-template-columns: 1fr 1fr; padding: 2rem;gap: 2rem;margin-bottom: 7rem; }
+
+    .wrap div {display: flex;flex-direction: column;gap: 1rem; }
+
+    h2, p {margin: 0; line-height: 1.4; }
+
+    .bg-button {
+      cursor: pointer;
+      color: #fff;text-decoration: underline;
+      transition: color 0.3s;
+    }
+    .bg-button:hover {color: #ffd700;}
+    .bg-button.playing {color: #ffd700;}
+
+    .wrap2 {display: grid;grid-template-columns: repeat(4, 1fr);grid-auto-rows: auto;gap: 1rem; padding: 2rem; }
+    
+    .wrap2photo {display: flex;flex-direction: column;gap: 0.8rem;}
+
+    .wrap2 img {width: 100%;height: 200px;object-fit: cover;cursor: pointer;transition: filter 0.3s ease;
+    }
+
+    .songtitle {text-align: left;font-size: 0.9rem; }
+
+    .footer {text-align: center;font-size: 0.8rem; color: #ccc;margin: 2rem 0 1rem 0;font-family: 'SchoolSafetyGoodSupport', sans-serif;
+    }
+
+    @media(max-width: 900px) {
+      .header {grid-template-columns: 1fr;}
+      .gallery {grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+  <title>헤어질 결심, 그리고 산과 바다</title>
+</head>
+<body>
+
+  <audio id="mountainSound" src="mountain.mp3"></audio>
+  <audio id="seaSound" src="sea.mp3"></audio>
+  <audio id="sound1" src="sound1.mp3"></audio>
+  <audio id="sound2" src="sound2.mp3"></audio>
+  <audio id="sound3" src="sound3.mp3"></audio>
+  <audio id="sound4" src="sound4.mp3"></audio>
+  <audio id="sound5" src="sound5.mp3"></audio>
+  <audio id="sound6" src="sound6.mp3"></audio>
+  <audio id="sound7" src="sound7.mp3"></audio>
+  <audio id="sound8" src="sound8.mp3"></audio>
+
+  <div class="wrap">
+    <div>
+    <h2>헤어질 결심<br>영화 음악</h2>
+      <p>
+    <span class="bg-button" onclick="toggleBgSound('mountain', this)">산</span>과 
+        <span class="bg-button" onclick="toggleBgSound('sea', this)">바다</span>
+      </p>
+    <p>감독 | 박찬욱<br>음악 | 조영욱</p>
+    <p>2022</p>
+    </div>
+
+    <div>
+      <h2>Decision To Leave<br>Soundtrack</h2>
+      <p>
+     <span class="bg-button" onclick="toggleBgSound('mountain', this)">mountain</span> and 
+        <span class="bg-button" onclick="toggleBgSound('sea', this)">sea</span>
+      </p>
+      <p>Director | Park Chan–wook<br>Music | Jo Yeong–wook</p>
+      <p>2022</p>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap2 ">
+    <div class="wrap2photo">
+    <img id="movie-photo-1" src="image 9.png" alt="1">
+    <span class="songtitle">안개 Fog</span>
+    </div>
+    <div class="wrap2photo">
+    <img id="movie-photo-2" src="image 1.png" alt="2">
+    <span class="songtitle">붕괴 Falling Down</span>
+    </div>
+    <div class="wrap2photo">
+    <img id="movie-photo-3" src="image 2.png" alt="3">
+    <span class="songtitle">잠복근무 Peeping Tom</span>
+    </div>
+    <div class="wrap2photo">
+    <img id="movie-photo-4" src="image 4.png" alt="4">
+    <span class="songtitle">당신목소리 Look of Love</span>
+    </div>
+    <div class="wrap2photo">
+    <img id="movie-photo-5" src="image 8.png" alt="5">
+    <span class="songtitle">눈 내리는 호미산 With Love</span>
+    </div>
+    <div class="wrap2photo">
+      <img id="movie-photo-6" src="image 7.png" alt="6">
+    <span class="songtitle">죽을만큼 좋아해 Love to Death</span>
+    </div>
+    <div class="wrap2photo">
+    <img id="movie-photo-7" src="image 6.png" alt="7">
+     <span class="songtitle">서래 Seorae</span>
+    </div>
+    <div class="wrap2photo">
+    <img id="movie-photo-8" src="image 5.png" alt="8">
+    <span class="songtitle">음성파일 Crazy, Stupid, Love</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Clip from Decision to Leave (2022), directed by Park Chan–wook, CJ ENM.
+  </div>
+
+  <script>
+    function toggleBgSound(type, buttonElement) {
+      let isMountain = (type === 'mountain');
+      let currentSoundId;
+      let otherSoundId;
+      let otherType;
+
+      if (isMountain) {
+        currentSoundId = 'mountainSound';
+        otherSoundId = 'seaSound';
+        otherType = 'sea';
+      } else {
+        currentSoundId = 'seaSound';
+        otherSoundId = 'mountainSound';
+        otherType = 'mountain'; }
+      
+      let currentSound = document.getElementById(currentSoundId);
+      let otherSound = document.getElementById(otherSoundId);
+      let currentButtons = document.querySelectorAll(`[onclick="toggleBgSound('${type}', this)"]`);
+      let otherButtons = document.querySelectorAll(`[onclick="toggleBgSound('${otherType}', this)"]`);
+      
+      otherSound.pause();
+      otherSound.currentTime = 0;
+      otherButtons.forEach(function(btn) {
+        btn.classList.remove('playing');
+      });
+
+      if (isMountain) {
+        document.body.style.backgroundImage = "url('mountain.jpg')";
+      } else {
+        document.body.style.backgroundImage = "url('sea.jpg')";
+      }
+      
+      if (buttonElement.classList.contains('playing')) {
+        currentSound.pause();
+        currentSound.currentTime = 0;
+        currentButtons.forEach(function(btn) {
+            btn.classList.remove('playing');});
+      } else {
+        currentSound.currentTime = 0;
+        currentSound.play();
+        currentButtons.forEach(function(btn) {
+            btn.classList.add('playing');
+        });
+      }}
+
+    let img1 = document.getElementById('movie-photo-1');
+    let sound1 = document.getElementById('sound1');
+    let img2 = document.getElementById('movie-photo-2');
+    let sound2 = document.getElementById('sound2');
+    let img3 = document.getElementById('movie-photo-3');
+    let sound3 = document.getElementById('sound3');
+    let img4 = document.getElementById('movie-photo-4');
+    let sound4 = document.getElementById('sound4');
+    let img5 = document.getElementById('movie-photo-5');
+    let sound5 = document.getElementById('sound5');
+    let img6 = document.getElementById('movie-photo-6');
+    let sound6 = document.getElementById('sound6');
+    let img7 = document.getElementById('movie-photo-7');
+    let sound7 = document.getElementById('sound7');
+    let img8 = document.getElementById('movie-photo-8');
+    let sound8 = document.getElementById('sound8');
+
+
+
+    img1.onclick = function() {
+      let isPlaying = (img1.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound1.currentTime = 0; sound1.play(); img1.style.filter = 'invert(100%)'; } };
+
+    img2.onclick = function() {
+      let isPlaying = (img2.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound2.currentTime = 0; sound2.play(); img2.style.filter = 'invert(100%)'; }};
+
+    img3.onclick = function() {
+      let isPlaying = (img3.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound3.currentTime = 0; sound3.play(); img3.style.filter = 'invert(100%)'; }
+    };
+    
+    img4.onclick = function() {
+      let isPlaying = (img4.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound4.currentTime = 0; sound4.play(); img4.style.filter = 'invert(100%)'; }
+    };
+
+    img5.onclick = function() {
+      let isPlaying = (img5.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound5.currentTime = 0; sound5.play(); img5.style.filter = 'invert(100%)'; }
+    };
+
+    img6.onclick = function() {
+      let isPlaying = (img6.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound6.currentTime = 0; sound6.play(); img6.style.filter = 'invert(100%)'; }
+    };
+
+    img7.onclick = function() {
+      let isPlaying = (img7.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound7.currentTime = 0; sound7.play(); img7.style.filter = 'invert(100%)'; }
+    };
+
+    img8.onclick = function() {
+      let isPlaying = (img8.style.filter === 'invert(100%)');
+      sound1.pause(); sound2.pause(); sound3.pause(); sound4.pause(); sound5.pause(); sound6.pause(); sound7.pause(); sound8.pause();
+      img1.style.filter = ''; img2.style.filter = ''; img3.style.filter = ''; img4.style.filter = ''; img5.style.filter = ''; img6.style.filter = ''; img7.style.filter = ''; img8.style.filter = '';
+      if (!isPlaying) { sound8.currentTime = 0; sound8.play(); img8.style.filter = 'invert(100%)'; }};
+  </script>
+
+</body>
+</html>
